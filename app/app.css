@@ -1,0 +1,36 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+.fa-brands {
+    font-family: "Font Awesome 6 Brands", "fa-brands-400";
+}
+
+.far {
+    font-family: "Font Awesome 6 Free", "fa-regular-400";
+    font-weight: 400;
+}
+
+.fas {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+
+Button.-primary {
+  font-size: 18;
+}
+
+.red {
+  color:  red;
+}
+
+.fab-button {
+  height: 70;
+  width: 70;
+  margin: 15;
+  /* background-color: #ff4081; */
+  horizontal-align: right;
+  vertical-align: bottom;
+  color: white;
+  font-size: 32;
+}

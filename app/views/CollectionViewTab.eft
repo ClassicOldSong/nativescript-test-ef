@@ -1,0 +1,28 @@
+>TabViewItem
+	#title = CollectionView
+	>ScrollView
+		>StackLayout
+			#row = 0
+			>GridLayout
+				#height = 60
+				#columns = *, *, *
+				>Button
+					#col = 0
+					@tap = addCollectionView
+					#text = Add
+				>Button
+					#col = 1
+					@tap = removeCollectionView
+					#text = Remove
+				>Button
+					#col = 2
+					@tap = refreshCollectionView
+					#text = Refresh
+			>CollectionView#CollectionView
+				#height = 550
+				#colWidth = 50%
+				#rowHeight = 100
+				%items = {{items}}
+				>ItemTemplate.itemTemplate
+					@createView = createCollectionItem
+					@itemLoading = loadCollectionItem

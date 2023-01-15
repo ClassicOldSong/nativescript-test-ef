@@ -1,0 +1,60 @@
+>TabViewItem
+	#title = RadListView
+	>ScrollView
+		>StackLayout
+			#row = 0
+			>GridLayout
+				#height = 60
+				#columns = *, *, *
+				>Button
+					#col = 0
+					@tap = addRadList
+					#text = Add
+				>Button
+					#col = 1
+					@tap = removeRadList
+					#text = Remove
+				>Button
+					#col = 2
+					@tap = refreshRadList
+					#text = Refresh
+			>RadListView#radListView
+				#height = 500
+				#swipeActions = true
+				@itemSwiping = swiping
+				+radListItems
+				>ItemTemplate.itemSwipeTemplate
+					>GridLayout
+						#columns = auto, *, auto
+						#backgroundColor = White
+						>StackLayout
+							#id = mark-view
+							#col = 0
+							#style = background-color: blue;
+							@tap = onLeftSwipeClick
+							#paddingLeft = 16
+							#paddingRight = 16
+							#orientation = horizontal
+							>Label
+								#text = mark
+								#style = text-size: 20
+								#verticalAlignment = center
+								#horizontalAlignment = center
+						>StackLayout
+							#id = delete-view
+							#col = 2
+							#style = background-color: red;
+							@tap = onRightSwipeClick
+							#paddingLeft = 16
+							#paddingRight = 16
+							#orientation = horizontal
+							>Label
+								#text = delete
+								#style = text-size: 20
+								#verticalAlignment = center
+								#horizontalAlignment = center
+				>Label
+					#text = ListView
+				>Button
+					#text = Add
+					@tap = addRadList

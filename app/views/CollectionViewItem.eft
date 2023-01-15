@@ -1,0 +1,4 @@
+>GridLayout#root
+	#backgroundColor = {{color}}
+	>Label
+		%text = {{index}} {{name}} {{color}}

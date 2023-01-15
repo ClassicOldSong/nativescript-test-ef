@@ -1,0 +1,266 @@
+!import RadListViewTab from './views/RadListViewTab.eft'
+!import CollectionViewTab from './views/CollectionViewTab.js'
+
+!scope { RadListViewTab, CollectionViewTab }
+
+>ActionBar#actionbar
+	#title = Hello, {{name = ef.{N}&}}!
+	>NavigationButton.fas
+		#text = &uf104 Go Back
+		#android.systemIcon = ic_menu_back
+	>ActionItem.fas
+		@tap = reset
+		#text = &uf01e
+		#ios.position = right
+		#ios.systemIcon = 24
+>TabView#tabView
+	%selectedIndex@selectedIndexChange = {{tabSelectedIndex = 0}}
+	>TabViewItem
+		#title = Tab A
+		>ScrollView
+			>StackLayout#stack
+				>Button.-primary#button
+					@tap = increment
+					%text = Tap me! You have tapped {{count = 0}} time(s)
+				>Label
+					#horizontalAlignment = center
+					.Current time is: {{currentTime}}
+				>TextField
+					#hint = Type your name here!
+					%text@textChange = {{name}}
+				>GridLayout
+					#columns = *, 80, 80
+					>Label
+						#verticalAlignment = center
+						#col = 0
+						.Check status: {{checked}}
+					>Switch
+						#col = 1
+						%checked@checkedChange = {{checked = true}}
+					>CheckBox#checkBox
+						#col = 2
+						%checked@checkedChange = {{checked}}
+				>StackLayout
+					+views
+				>GridLayout
+					#columns = *, *
+					>Button
+						#col = 0
+						@tap = addView
+						.Add View
+					>Button
+						#col = 1
+						@tap = removeView
+						.Remove View
+				>GridLayout
+					#columns = 100, *
+					>Label
+						#verticalAlignment = center
+						#col = 0
+						#text = Bar index: {{segmentIndex = 0}}
+					>Slider
+						#col = 1
+						%value@valueChange = {{segmentIndex}}
+						%maxValue = {{sliderMaxValue = 2}}
+				>GridLayout
+					#columns = 100, *
+					>Label
+						#verticalAlignment = center
+						#col = 0
+						#text = Using Prop
+					>SegmentedBar#bar1
+						#col = 1
+						%selectedIndex@selectedIndexChange = {{segmentIndex}}
+						>Prop
+							#key = items
+							#type = array
+							>SegmentedBarItem
+								#title = Item 0
+							>SegmentedBarItem
+								#title = Item 1
+							>SegmentedBarItem
+								#title = Item 2
+							+propedBarItems
+				>GridLayout
+					#columns = 100, *
+					>Label
+						#verticalAlignment = center
+						#col = 0
+						#text = Direct mount
+					>SegmentedBar#bar2
+						#col = 1
+						%selectedIndex@selectedIndexChange = {{segmentIndex}}
+						>SegmentedBarItem
+							#title = Item 0
+						>SegmentedBarItem
+							#title = Item 1
+						>SegmentedBarItem
+							#title = Item 2
+						+barItems
+				>GridLayout#grid
+					#columns = *, *
+					>Button
+						#col = 0
+						@tap = addBarItem
+						.Add Bar Item
+					>Button
+						#col = 1
+						@tap = removeBarItem
+						.Remove Bar Item
+				>Label
+					#textWrap = true
+					>FormattedString
+						>Span
+							.This text has a &
+						>Span.red
+							#color = red
+							.red &
+						>Span
+							.piece of text. &
+						>Span
+							#fontStyle = italic
+							.Also, this bit is italic, &
+						>Span
+							#fontWeight = bold
+							.and this bit is bold.
+				>Label
+					>FormattedString
+						>Prop.spans:array
+							>Span
+								#text = This pieec of text has been set by &
+							>Span
+								#text = prop.
+								#fontWeight = bold
+				>Progress
+					%value = {{progressValue = 20}}
+					%maxValue = {{progressMaxValue = 100}}
+				>Slider
+					%value@valueChange = {{progressValue}}
+					%maxValue = {{progressMaxValue = 100}}
+				>ContentView
+					>Prop
+						#key = content
+						>DatePicker
+				>TimePicker
+				>Fab.fab-button.fas
+					@tap = gotoB
+					#text = &uf061
+	>TabViewItem#tabItem2
+		#title = Tab B
+		>ScrollView
+			>StackLayout
+				>SearchBar
+				>Button.-primary
+					@tap = backToA
+					#text = Back to Tab A
+				>DatePickerField
+					#hint = Pick a date!
+					#titleTextColor = green
+					#pickerTitle = Pick a date!
+					%date@dateChange = {{date = 2019/02/24}}
+				>TimePickerField
+					#hint = Pick a time!
+					%time@timeChange = {{time}}
+					@timeChange = timeChange:{{time}}
+				>DateTimePickerFields
+					#hintDate = Pick a date!
+					#hintTime = Pick a time!
+					%date@dateChange = {{date}}
+					%date@timeChange = {{time2}}
+					@timeChange = timeChange:{{time2}}
+				>GridLayout
+					#height = 60
+					#columns = *, *, *
+					>Button
+						#col = 0
+						@tap = addList
+						#text = Add
+					>Button
+						#col = 1
+						@tap = removeList
+						#text = Remove
+					>Button
+						#col = 2
+						@tap = refreshList
+						#text = Refresh
+				>ListView#listView
+					#id = listView
+					#height = 400
+					+listItems
+					>Label
+						#text = ListView
+					>Button
+						#text = Add
+						@tap = addList
+				>ListView#keyedTemplateListView
+					#height = 400
+					#items = {{items}}
+					#itemTemplateSelector = $index % 2 ? 'odd' : 'even'
+					>Prop.itemTemplates:array#prop
+						>ItemTemplate.odd
+							>StackLayout
+								#orientation = horizontal
+								>Label
+									.Odd
+								>Button
+									@tap = tplOddBtnTap
+									#text = Odd button
+						>ItemTemplate.even
+							>StackLayout
+								#orientation = horizontal
+								>Label
+									.Even
+								>Button
+									@tap = tplEvenBtnTap
+									#text = Even button
+				>GridLayout
+					#height = 60
+					#columns = *, *, *
+					>Button
+						#col = 0
+						@tap = addKeyedTemplateList
+						#text = Add
+					>Button
+						#col = 1
+						@tap = removeKeyedTemplateList
+						#text = Remove
+					>Button
+						#col = 2
+						@tap = refreshKeyedTemplateList
+						#text = Refresh
+	>TabViewItem#tabItem3
+		#title = Template List View
+		>StackLayout
+			>TextField
+				%text@textChange = {{templateListText = cool}}
+			>GridLayout
+				#height = 60
+				#columns = *, *, *
+				>Button
+					#col = 0
+					@tap = addTemplateList:{{templateListText}}
+					#text = Add
+				>Button
+					#col = 1
+					@tap = removeTemplateList
+					#text = Remove
+				>Button
+					#col = 2
+					@tap = refreshTemplateList
+					#text = Refresh
+			>ListView#templateListView
+				#items = {{templateListItems}}
+				#height = 800
+				>ItemTemplate.itemTemplate
+					@createView = createListItem
+					@itemLoading = loadListItem
+	>RadListViewTab#radListViewTab
+		@addRadList = addRadList
+		@removeRadList = removeRadList
+		@refreshRadList = refreshRadList
+	>CollectionViewTab#collectionViewTab
+		%items = {{collectionViewItems}}
+		@addCollectionView = addCollectionView
+		@removeCollectionView = removeCollectionView
+		@refreshCollectionView = refreshCollectionView
+

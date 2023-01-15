@@ -1,0 +1,28 @@
+{
+  "name": "samplejs",
+  "main": "app/app.js",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript-community/ui-collectionview": "^4.0.65",
+    "@nativescript/core": "~8.4.4",
+    "@nativescript/datetimepicker": "^2.1.12",
+    "@nativescript/theme": "~3.0.2",
+    "@nstudio/nativescript-checkbox": "^2.0.5",
+    "@nstudio/nativescript-floatingactionbutton": "^3.0.4",
+    "dominative": "file:../dominative",
+    "ef-core": "file:../ef-core",
+    "nativescript-ui-listview": "^14.2.4",
+    "nativescript-ui-sidedrawer": "^14.2.1",
+    "undom-ng": "file:../undom-ng"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.4.0",
+    "@nativescript/ios": "^8.4.0",
+    "@nativescript/preview-cli": "1.0.2",
+    "@nativescript/stackblitz": "0.0.6",
+    "@nativescript/webpack": "alpha",
+    "eft-loader": "^0.14.5",
+    "eft-parser": "^0.14.1"
+  }
+}
