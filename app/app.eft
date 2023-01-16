@@ -192,42 +192,45 @@
 					>Button
 						#text = Add
 						@tap = addList
-				>ListView#keyedTemplateListView
-					#height = 400
-					#items = {{items}}
-					#itemTemplateSelector = $index % 2 ? 'odd' : 'even'
-					>Prop.itemTemplates:array#prop
-						>ItemTemplate.odd
-							>StackLayout
-								#orientation = horizontal
-								>Label
-									.Odd
-								>Button
-									@tap = tplOddBtnTap
-									#text = Odd button
-						>ItemTemplate.even
-							>StackLayout
-								#orientation = horizontal
-								>Label
-									.Even
-								>Button
-									@tap = tplEvenBtnTap
-									#text = Even button
-				>GridLayout
-					#height = 60
-					#columns = *, *, *
-					>Button
-						#col = 0
-						@tap = addKeyedTemplateList
-						#text = Add
-					>Button
-						#col = 1
-						@tap = removeKeyedTemplateList
-						#text = Remove
-					>Button
-						#col = 2
-						@tap = refreshKeyedTemplateList
-						#text = Refresh
+	>TabViewItem#tabItem4
+		#title = Tab C
+		>StackLayout
+			>GridLayout
+				#height = 60
+				#columns = *, *, *
+				>Button
+					#col = 0
+					@tap = addKeyedTemplateList
+					#text = Add
+				>Button
+					#col = 1
+					@tap = removeKeyedTemplateList
+					#text = Remove
+				>Button
+					#col = 2
+					@tap = refreshKeyedTemplateList
+					#text = Refresh
+			>ListView#keyedTemplateListView
+				#height = 400
+				#items = {{items}}
+				#itemTemplateSelector = $index % 2 ? 'odd' : 'even'
+				>ArrayProp.itemTemplates#prop
+					>ItemTemplate.odd
+						>StackLayout
+							#orientation = horizontal
+							>Label
+								.Odd
+							>Button
+								@tap = tplOddBtnTap
+								#text = Odd button
+					>ItemTemplate.even
+						>StackLayout
+							#orientation = horizontal
+							>Label
+								.Even
+							>Button
+								@tap = tplEvenBtnTap
+								#text = Even button
 	>TabViewItem#tabItem3
 		#title = Template List View
 		>StackLayout
@@ -251,7 +254,7 @@
 			>ListView#templateListView
 				#items = {{templateListItems}}
 				#height = 800
-				>ItemTemplate.itemTemplate
+				>ItemTemplate
 					@createView = createListItem
 					@itemLoading = loadListItem
 	>RadListViewTab#radListViewTab
