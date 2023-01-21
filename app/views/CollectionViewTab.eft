@@ -21,7 +21,9 @@
 			>CollectionView#CollectionView
 				#height = 550
 				#colWidth = 50%
-				#rowHeight = 100
+				#rowHeight = 200
+				#backgroundColor = blue
+				@loadMoreItems = collectionLoadMore
 				%items = {{items}}
 				>ItemTemplate.itemTemplate
 					@createView = createCollectionItem

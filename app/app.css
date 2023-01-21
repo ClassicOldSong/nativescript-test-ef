@@ -1,6 +1,11 @@
 @import '@nativescript/theme/css/core.css';
 @import '@nativescript/theme/css/default.css';
 
+ActionBar, Button {
+    background-color: #b52e31;
+    color: white;
+}
+
 .fa-brands {
     font-family: "Font Awesome 6 Brands", "fa-brands-400";
 }

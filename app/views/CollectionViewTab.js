@@ -15,7 +15,7 @@ const CollectionViewTab = class extends Tab {
 			const { view, item } = event
 			const _item = view.__efModel
 
-			_item.$data = item
+			_item.$data.item = item
 		}
 	}
 }

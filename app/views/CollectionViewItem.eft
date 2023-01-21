@@ -1,4 +1,43 @@
->GridLayout#root
-	#backgroundColor = {{color}}
-	>Label
-		%text = {{index}} {{name}} {{color}}
+>GridLayout.item#root
+	%rows = *, auto, auto
+	%backgroundColor = {{item.color}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>HTMLLabel
+		%text = Odd {{item.index}}
+	>StackLayout
+		%row = 1
+		>HTMLLabel
+			%text = Odd {{item.index}}
+		>HTMLLabel.title
+			%row = 1
+			%text = {{item.name}}
+		>HTMLLabel.subtitle
+			%row = 1
+			%text = item.color
+	>Button
+		%text = button
+	>Button
+		%text = button
+	>Button
+		%text = button
+	>Button
+		%text = button
+	>Button
+		%text = button
+	>Button
+		%text = button
